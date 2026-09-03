@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    overflow: hidden;
+
+    background: #102d1b;
+}
+
+
+/* ===============================
+   MENU AWAL
+================================ */
+
+#startScreen {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            rgba(7, 45, 20, 0.85),
+            rgba(5, 20, 10, 0.95)
+        );
+}
+
+
+.loginBox {
+
+    width: 100%;
+    max-width: 400px;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    color: white;
+
+    background:
+        rgba(22, 70, 38, 0.95);
+
+    border:
+        2px solid
+        rgba(140, 255, 100, 0.3);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.5);
+}
+
+
+.forestIcon {
+
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+
+.loginBox h1 {
+
+    color: #a8ff7a;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+}
+
+
+.loginBox p {
+
+    color: #d5ead8;
+
+    margin-bottom: 25px;
+
+    line-height: 1.5;
+}
+
+
+.loginBox input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    background: #f4fff5;
+}
+
+
+.loginBox button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.playButton {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2ecc71,
+            #1f8f4e
+        );
+}
+
+
+.leaderboardButton {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5b041,
+            #d68910
+        );
+}
+
+
+.loginBox button:hover {
+
+    transform: scale(1.03);
+
+}
+
+
+/* ===============================
+   GAME
+================================ */
+
+#gameContainer {
+
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+canvas {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* ===============================
+   INFORMASI GAME
+================================ */
+
+#gameUI {
+
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 10;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    color: white;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    backdrop-filter:
+        blur(5px);
+
+    min-width: 160px;
+}
+
+
+.infoItem {
+
+    margin: 8px 0;
+
+    font-size: 16px;
+}
+
+
+/* ===============================
+   TOMBOL SELESAI
+================================ */
+
+#finishButton {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 10;
+
+    padding: 12px 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #d63031;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ===============================
+   ANALOG
+================================ */
+
+#joystickArea {
+
+    position: absolute;
+
+    left: 25px;
+    bottom: 30px;
+
+    z-index: 20;
+
+    width: 140px;
+    height: 140px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+#joystickBase {
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    border:
+        3px solid
+        rgba(255, 255, 255, 0.35);
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    touch-action: none;
+}
+
+
+#joystickStick {
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(76, 175, 80, 0.85);
+
+    border:
+        3px solid
+        rgba(255, 255, 255, 0.5);
+
+    position: absolute;
+
+    pointer-events: none;
+
+    transition: 0.05s;
+}
+
+
+/* ===============================
+   PETUNJUK
+================================ */
+
+#controlInfo {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+
+    padding: 10px 15px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* ===============================
+   LEADERBOARD
+================================ */
+
+#leaderboardScreen {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 100;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.85);
+}
+
+
+.leaderboardBox {
+
+    width: 100%;
+    max-width: 450px;
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    color: white;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #174d2b,
+            #0d2e1b
+        );
+}
+
+
+.leaderboardBox h1 {
+
+    color: #ffd700;
+
+    margin-bottom: 8px;
+}
+
+
+.leaderboardSub {
+
+    color: #c9e8cf;
+
+    margin-bottom: 20px;
+}
+
+
+.leaderboardItem {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.1);
+}
+
+
+.rank {
+
+    font-weight: bold;
+
+    color: #ffd700;
+}
+
+
+.playerScore {
+
+    color: #9cff72;
+
+    font-weight: bold;
+}
+
+
+.leaderboardBox button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2ecc71;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
+
+    .loginBox {
+
+        padding: 30px 20px;
+
+    }
+
+    .loginBox h1 {
+
+        font-size: 24px;
+
+    }
+
+    #joystickArea {
+
+        left: 15px;
+        bottom: 20px;
+
+        transform: scale(0.9);
+
+        transform-origin:
+            bottom left;
+
+    }
+
+    #gameUI {
+
+        font-size: 14px;
+
+        padding: 12px;
+
+    }
+
+  }
