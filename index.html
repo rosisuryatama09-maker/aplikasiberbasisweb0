@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Forest Adventure 3D</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= MENU AWAL ================= -->
+
+    <div id="startScreen">
+
+        <div class="loginBox">
+
+            <div class="forestIcon">🌲</div>
+
+            <h1>FOREST ADVENTURE</h1>
+
+            <p>
+                Jelajahi hutan dan kumpulkan sebanyak mungkin koin!
+            </p>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Masukkan Username"
+                maxlength="20"
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Masukkan Nomor HP"
+                inputmode="numeric"
+            >
+
+            <button onclick="startGame()" class="playButton">
+                🎮 MULAI BERMAIN
+            </button>
+
+            <button onclick="showLeaderboard()" class="leaderboardButton">
+                🏆 LEADERBOARD
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= GAME ================= -->
+
+    <div id="gameContainer">
+
+        <!-- INFORMASI GAME -->
+
+        <div id="gameUI">
+
+            <div class="infoItem">
+                👤 <span id="playerName">Player</span>
+            </div>
+
+            <div class="infoItem">
+                🪙 Skor: <span id="score">0</span>
+            </div>
+
+            <div class="infoItem">
+                🎯 Koin: <span id="coinCount">0</span>
+            </div>
+
+        </div>
+
+
+        <!-- TOMBOL SELESAI -->
+
+        <button id="finishButton" onclick="finishGame()">
+            ✖ Selesai
+        </button>
+
+
+        <!-- ================= ANALOG ================= -->
+
+        <div id="joystickArea">
+
+            <div id="joystickBase">
+
+                <div id="joystickStick"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PETUNJUK -->
+
+        <div id="controlInfo">
+
+            🎮 Gunakan analog untuk bergerak
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= LEADERBOARD ================= -->
+
+    <div id="leaderboardScreen">
+
+        <div class="leaderboardBox">
+
+            <h1>🏆 LEADERBOARD</h1>
+
+            <p class="leaderboardSub">
+                Pemain terbaik Forest Adventure
+            </p>
+
+            <div id="leaderboardData">
+
+                Memuat data...
+
+            </div>
+
+            <button onclick="closeLeaderboard()">
+                ← KEMBALI
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
